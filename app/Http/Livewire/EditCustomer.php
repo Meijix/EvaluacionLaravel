@@ -6,24 +6,16 @@ use App\Models\Customer;
 
 class EditCustomer extends Component
 {
-    public $id;
-    public $name;
-    public $email;
-    public $phone;
-    public $address;
-    public $birthday;
+    public $customer;
+    public $name, $email, $phone, $address, $birthday;
 
     protected $rules = [
         'name' => 'required|regex:/^[\pL\s]+$/u|max:50', // Solo letras y espacios
         'email' => 'required|email|unique:customers,email',
         'phone' => 'required|regex:/^[0-9]+$/|min:10|max:15|unique:customers,phone', // Solo números y mínimo 10 dígitos
         'address' => 'required|max:255',
-        'nacimiento' => 'required|date|before:today',
+        'birthday' => 'required|date|before:today',
     ];
-
-    // EXPRESION REGULAR
-    // /^[\pL\s]+$/u solo permite letras y espacios
-    // /^[0-9]+$/ Solo permite números 
 
     protected $messages = [
         'name.required' => 'El campo nombre es obligatorio.',
@@ -42,10 +34,10 @@ class EditCustomer extends Component
         'birthday.before' => 'La fecha de nacimiento debe ser anterior a hoy.',
     ];
 
-
-    public function mount($id)
+    // ✅ Laravel resuelve automáticamente el modelo basado en la URL (customers/{customer}/edit)
+    public function mount(Customer $customer)
     {
-        $customer = Customer::findOrFail($id);
+        $this->customer = $customer;
         $this->name = $customer->name;
         $this->email = $customer->email;
         $this->phone = $customer->phone;
@@ -57,8 +49,8 @@ class EditCustomer extends Component
     {
         $this->validate();
 
-        $customer = Customer::findOrFail($this->id);
-        $customer->update([
+        // ✅ Actualiza directamente usando el modelo cargado
+        $this->customer->update([
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
@@ -66,8 +58,8 @@ class EditCustomer extends Component
             'birthday' => $this->birthday,
         ]);
 
-        session()->flash('message', 'Customer updated successfully.');
-        return redirect()->route('customers.index');
+        session()->flash('message', 'Cliente actualizado correctamente.');
+        return redirect()->route('customers');
     }
 
     public function render()
@@ -75,3 +67,4 @@ class EditCustomer extends Component
         return view('livewire.edit-customer');
     }
 }
+

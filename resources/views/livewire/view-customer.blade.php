@@ -24,7 +24,9 @@
       </table>
       </p>
 
-      <a href="./customers" class="btn btn-primary">Volver</a>
+      <a href="./" class="btn btn-primary">Volver</a>
+      {{-- Editar --}}
+      <a href="{{ route('edit', ['customer' => $customer->id]) }}" class="btn btn-secondary btn-sm">Editar</a>
     </div>
   </div>
 </div>

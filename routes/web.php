@@ -1,19 +1,21 @@
 <?php
 
-use App\Http\Livewire\CreateCustomer;
-use App\Http\Livewire\Customers;
-use App\Http\Livewire\ViewCustomer;
-use App\Http\Livewire\EditCustomer;
-use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\CustomerController;
+
+use App\Http\Livewire\Customers;
+use App\Http\Livewire\CreateCustomer;
+use App\Http\Livewire\EditCustomer;
+use App\Http\Livewire\ViewCustomer;
+use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('welcome');})->name('principal');
 
-Route::get('/customers', Customers::class);
-Route::get('/customers/create', CreateCustomer::class);
-Route::get('/customers/{customer}', ViewCustomer::class);
-Route::get('/customers/{customer}/edit', EditCustomer::class);
+Route::get('/customers', Customers::class)->name('customers');
+Route::get('/customers/create', CreateCustomer::class)->name('create');
+Route::get('/customers/{customer}', ViewCustomer::class)->name('view');
+Route::get('/customers/{customer}/edit', EditCustomer::class)->name('edit');
     
 /* 
 //Crear un cliente

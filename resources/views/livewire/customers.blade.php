@@ -1,6 +1,10 @@
 <div>
-    <button wire:navigate href="/customers/create" class="btn btn-success btn-sm">Crear Cliente</button>
+    
+    <h1>Clientes</h1>
+    <p>En esta pagina se pueden administrar los clientes con los que cuenta la empresa</p>
 
+    <a href="{{ route('create') }}" class="btn btn-success btn-sm">Crear Cliente</a>
+    <br><br>
     <table class="table">
         <thead>
             <tr>
@@ -24,15 +28,16 @@
                     <td>{{$customer->birthday}}</td>
                     <td>
                         {{-- Ver --}}
-                        <button class="btn btn-primary btn-sm" wire:click="view({{$customer->id}})">Ver</button>
+                        <a href="{{ route('view', ['customer' => $customer->id]) }}" class="btn btn-primary btn-sm">Ver</a>
                         {{-- Editar --}}
-                        <button class="btn btn-secondary btn-sm" wire:click="edit({{ $customer->id }})">Edit</button>
+                        <a href="{{ route('edit', ['customer' => $customer->id]) }}" class="btn btn-secondary btn-sm">Editar</a>
                         {{-- Borrar --}}
-                        <form wire:submit="save" action="" method="POST" style="display:inline;">
+                        <button class="btn btn-danger btn-sm" wire:click="delete({{ $customer->id }})" onclick="return confirm('¿Seguro que deseas eliminar este cliente?')" >Borrar</button>
+                        {{-- <form wire:submit="save" action="delete" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este cliente?')"> Borrar </button>
-                        </form>
+                        </form> --}}
                         
                     </td>
                 </tr>
