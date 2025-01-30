@@ -20,6 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Crear un cliente
 Route::get('/customers/create', CreateCustomer::class);
+//Listar clientes
 Route::get('/customers', Customers::class);
+//Ver un cliente
 Route::get('/customers/{customer}', ViewCustomer::class);

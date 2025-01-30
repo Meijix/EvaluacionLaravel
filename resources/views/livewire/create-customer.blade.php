@@ -1,7 +1,7 @@
 <div>
   <div class="card offset-3 col-6">
       <div class="card-header">
-        Crea Cliente
+        Agregar Nuevo Cliente
       </div>
       <div class="card-body">
         
@@ -22,16 +22,16 @@
                 @error('phone')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
               <div class="mb-3">
-                <label class="form-label">Edad</label>
-                <input wire:model="edad" type="number" class="form-control">
-                @error('edad')<span class="text-danger" >{{$message}}</span>@enderror
+                <label class="form-label">Direccion</label>
+                <input wire:model="address" type="text" class="form-control">
+                @error('address')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
               <div class="mb-3">
                 <label class="form-label">Fecha de nacimiento</label>
-                <input wire:model="nacimiento" type="date" class="form-control">
-                @error('nacimiento')<span class="text-danger" >{{$message}}</span>@enderror
+                <input wire:model="birthday" type="date" class="form-control">
+                @error('birthday')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
               <a href="/customers" class="btn btn-primary">regresar</a>
             </form>
 

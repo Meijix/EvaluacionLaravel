@@ -9,7 +9,7 @@
           <tr>
             <th>Email</th>
             <th>Teléfono</th>
-            <th>Edad</th>
+            <th>Direccion</th>
             <th>Fecha de nacimiento</th>
           </tr>
         </thead>
