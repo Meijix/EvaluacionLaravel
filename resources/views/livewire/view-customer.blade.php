@@ -1,10 +1,29 @@
 <div>
-    <div class="card">
-        <h5 class="card-header">Featured</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+  <div class="card">
+    <h5 class="card-header">Datos del Cliente</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{$customer->name}}</h5>
+      <p class="card-text">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Edad</th>
+            <th>Fecha de nacimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{$customer->email}}</td>
+            <td>{{$customer->phone}}</td>
+            <td>{{$customer->address}}</td>
+            <td>{{$customer->birthday}}</td>
+          </tr>
+        </tbody>
+      </table>
+      </p>
+      <a href="/customers" class="btn btn-primary">Volver</a>
+    </div>
+  </div>
 </div>

@@ -7,6 +7,8 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Correo Electrónico</th>
                 <th scope="col">Teléfono</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Fecha de Nacimiento</th>
                 <th scope="col">Acción</th>
             </tr>
         </thead>
@@ -17,6 +19,8 @@
                     <td>{{$customer->name}}</td>
                     <td>{{$customer->email}}</td>
                     <td>{{$customer->phone}}</td>
+                    <td>{{$customer->address}}</td>
+                    <td>{{$customer->birthday}}</td>
                     <td>
                         <button wire:navigate href="/customers/{{$customer->id}}" class="btn btn-primary btn-sm">Ver</button>
                         <button class="btn btn-secondary btn-sm">Editar</button>
