@@ -7,7 +7,7 @@ use App\Models\Customer;
 
 class CustomerController extends Controller
 {
-    public function edit($id)
+    /* public function edit($id)
     {
         $customer = Customer::find($id);
         return view('customers.edit', compact('customer'));
@@ -20,6 +20,6 @@ class CustomerController extends Controller
 
 
         return redirect(route('principal'))->with('success', 'Cliente eliminado correctamente.');
-    }
+    } */
 
 }

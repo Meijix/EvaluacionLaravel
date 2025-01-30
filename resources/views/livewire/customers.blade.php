@@ -1,8 +1,6 @@
 <div>
     <button wire:navigate href="/customers/create" class="btn btn-success btn-sm">Crear Cliente</button>
 
-    <a href="" class="btn btn-success btn-sm">Crear Cliente</a>
-
     <table class="table">
         <thead>
             <tr>
@@ -30,12 +28,10 @@
                         {{-- Editar --}}
                         <button class="btn btn-secondary btn-sm" wire:click="edit({{ $customer->id }})">Edit</button>
                         {{-- Borrar --}}
-                        <form action="" method="POST" style="display:inline;">
+                        <form wire:submit="save" action="" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este cliente?')">
-                                Borrar
-                            </button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este cliente?')"> Borrar </button>
                         </form>
                         
                     </td>
