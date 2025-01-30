@@ -8,9 +8,15 @@ use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
     return view('welcome');})->name('principal');
-
-//Crear un cliente
 Route::get('/customers/create', CreateCustomer::class);
+Route::get('/customers', Customers::class);
+Route::get('/customers/{customer}', ViewCustomer::class);
+    
+/* 
+//Crear un cliente
+Route::get('/customers/create', CreateCustomer::class)->name('create')
+//Registar un cliente
+//Route::post('/customers', [CustomerController::class, 'store'])->name('customers.store');
 //Listar clientes
 Route::get('/customers', Customers::class);
 //Ver un cliente
@@ -21,4 +27,10 @@ Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('custom
 //Borrar un cliente
 Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
 
+//Editar un cliente
+Route::get('/customers/{id}', [CustomerController::class, 'edit'])->name('customers.edit');
+//Actualizar un cliente
+Route::post('/customers/{id}', [CustomerController::class, 'update'])->name('customers.update');
 
+
+ */

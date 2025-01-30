@@ -10,14 +10,14 @@ class CreateCustomer extends Component
     public $name = '';
     public $email = '';
     public $phone = '';
-    public $edad = '';
-    public $nacimiento = '';
+    public $address = '';
+    public $birthday = '';
 
     protected $rules = [
-        'name' => 'required|regex:/^[\pL\s]+$/u|max:255', // Solo letras y espacios
+        'name' => 'required|regex:/^[\pL\s]+$/u|max:50', // Solo letras y espacios
         'email' => 'required|email|unique:customers,email',
         'phone' => 'required|regex:/^[0-9]+$/|min:10|max:15|unique:customers,phone', // Solo números y mínimo 10 dígitos
-        'edad' => 'required|integer|min:1|max:120',
+        'address' => 'required|max:255',
         'nacimiento' => 'required|date|before:today',
     ];
 
@@ -36,13 +36,10 @@ class CreateCustomer extends Component
         'phone.min' => 'El teléfono debe tener al menos 10 dígitos.',
         'phone.max' => 'El teléfono no puede tener más de 15 dígitos.',
         'phone.unique' => 'El número de teléfono ya está registrado.',
-        'edad.required' => 'La edad es obligatoria.',
-        'edad.integer' => 'La edad debe ser un número entero.',
-        'edad.min' => 'La edad mínima permitida es 1 año.',
-        'edad.max' => 'La edad máxima permitida es 120 años.',
-        'nacimiento.required' => 'La fecha de nacimiento es obligatoria.',
-        'nacimiento.date' => 'Ingrese una fecha válida.',
-        'nacimiento.before' => 'La fecha de nacimiento debe ser anterior a hoy.',
+        'address.required' => 'La dirección es obligatoria.',
+        'birthday.required' => 'La fecha de nacimiento es obligatoria.',
+        'birthday.date' => 'Ingrese una fecha válida.',
+        'birthday.before' => 'La fecha de nacimiento debe ser anterior a hoy.',
     ];
 
     public function save()
@@ -53,8 +50,8 @@ class CreateCustomer extends Component
             'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
-            'edad' => $this->edad,
-            'nacimiento' => $this->nacimiento,
+            'address' => $this->address,
+            'birthday' => $this->birthday,
         ]);
         
         // Limpia los campos del formulario después de crear un cliente mostrando un mensaje de éxito

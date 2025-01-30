@@ -7,6 +7,12 @@ use App\Models\Customer;
 
 class CustomerController extends Controller
 {
+    public function edit($id)
+    {
+        $customer = Customer::find($id);
+        return view('customers.edit', compact('customer'));
+    }
+    
     public function destroy($id)
     {
         $customer = Customer::find($id);

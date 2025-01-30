@@ -1,5 +1,8 @@
 <div>
     <button wire:navigate href="/customers/create" class="btn btn-success btn-sm">Crear Cliente</button>
+
+    <a href="" class="btn btn-success btn-sm">Crear Cliente</a>
+
     <table class="table">
         <thead>
             <tr>
@@ -9,7 +12,7 @@
                 <th scope="col">Teléfono</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Acción</th>
+                <th scope="col">Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +25,12 @@
                     <td>{{$customer->address}}</td>
                     <td>{{$customer->birthday}}</td>
                     <td>
-                        <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-primary btn-sm">Ver</a>
-                        <button wire:click="edit({{ $customer->id }})" class="btn btn-secondary btn-sm">Editar</button>
-                        
-
-                        <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline;">
+                        {{-- Ver --}}
+                        <a href="" class="btn btn-primary btn-sm">Ver</a>
+                        {{-- Editar --}}
+                        <a href="" class="btn btn-secondary btn-sm">Editar</a>
+                        {{-- Borrar --}}
+                        <form action="" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este cliente?')">
