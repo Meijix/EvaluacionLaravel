@@ -23,7 +23,7 @@
         </tbody>
       </table>
       </p>
-      <a href="/customers" class="btn btn-primary">Volver</a>
+      <a href="./customers" class="btn btn-primary">Volver</a>
     </div>
   </div>
 </div>

@@ -4,21 +4,10 @@ use App\Livewire\Customers;
 use App\Livewire\ViewCustomer;
 use App\Livewire\CreateCustomer;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('welcome');})->name('principal');
 
 //Crear un cliente
 Route::get('/customers/create', CreateCustomer::class);
@@ -26,3 +15,10 @@ Route::get('/customers/create', CreateCustomer::class);
 Route::get('/customers', Customers::class);
 //Ver un cliente
 Route::get('/customers/{customer}', ViewCustomer::class);
+//Tengo que crear el controlador de Customers
+Route::get('/customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
+
+//Borrar un cliente
+Route::delete('/customers/{id}', [CustomerController::class, 'destroy'])->name('customers.destroy');
+
+

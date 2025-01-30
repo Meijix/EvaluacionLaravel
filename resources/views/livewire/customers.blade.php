@@ -22,9 +22,18 @@
                     <td>{{$customer->address}}</td>
                     <td>{{$customer->birthday}}</td>
                     <td>
-                        <button wire:navigate href="/customers/{{$customer->id}}" class="btn btn-primary btn-sm">Ver</button>
-                        <button class="btn btn-secondary btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Borrar</button>
+                        <a href="{{ route('customers.show', $customer->id) }}" class="btn btn-primary btn-sm">Ver</a>
+                        <button wire:click="edit({{ $customer->id }})" class="btn btn-secondary btn-sm">Editar</button>
+                        
+
+                        <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este cliente?')">
+                                Borrar
+                            </button>
+                        </form>
+                        
                     </td>
                 </tr>
             @endforeach
