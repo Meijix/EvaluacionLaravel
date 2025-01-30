@@ -16,16 +16,12 @@ class CreateCustomer extends Component
     public $birthday = '';
 
     protected $rules = [
-        'name' => 'required|regex:/^[\pL\s]+$/u|max:50', // Solo letras y espacios
+        'name' => 'required|max:50', // Solo letras y espacios
         'email' => 'required|email|unique:customers,email',
-        'phone' => 'required|regex:/^[0-9]+$/|min:10|max:15|unique:customers,phone', // Solo números y mínimo 10 dígitos
+        'phone' => 'required|min:10|max:15|unique:customers,phone', // Solo números y mínimo 10 dígitos
         'address' => 'required|max:255',
         'nacimiento' => 'required|date|before:today',
     ];
-
-    // EXPRESION REGULAR
-    // /^[\pL\s]+$/u solo permite letras y espacios
-    // /^[0-9]+$/ Solo permite números 
 
     protected $messages = [
         'name.required' => 'El campo nombre es obligatorio.',
@@ -55,10 +51,12 @@ class CreateCustomer extends Component
             'address' => $this->address,
             'birthday' => $this->birthday,
         ]);
+        // Crea un nuevo cliente con los datos ingresados en el formulario
+        // y los almacena en la base de datos.
         
-        // Limpia los campos del formulario después de crear un cliente mostrando un mensaje de éxito
-        $this->reset();
+        
         session()->flash('message', 'Cliente creado exitosamente.'); 
+        return redirect()->route('customers'); // Redirecciona a la lista de clientes
     }
 
     public function render()
