@@ -5,29 +5,30 @@
       </div>
       <div class="card-body">
           <form wire:submit="save">
+
               <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input wire:model="name" id="name" type="text" class="form-control" aria-describedby="nameHelp">
+                <input wire:model="name" id="name" type="text" class="form-control" aria-describedby="nameHelp" value="{{$old('name')}}">
                 @error('name')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
               <div class="mb-3">
                   <label for="email" class="form-label">Dirección de Correo Electrónico</label>
-                  <input wire:model="email" id="email" type="text" class="form-control" aria-describedby="emailHelp">
+                  <input wire:model="email" id="email" type="text" class="form-control" aria-describedby="emailHelp" value="{{$old('email')}}">
                   @error('email')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
               <div class="mb-3">
                 <label for="phone" class="form-label">Teléfono</label>
-                <input wire:model="phone" id="phone" type="text" class="form-control" >
+                <input wire:model="phone" id="phone" type="text" class="form-control" value="{{$old('phone')}}">
                 @error('phone')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
               <div class="mb-3">
                 <label for="address" class="form-label">Dirección</label>
-                <input wire:model="address"  id="address" type="text" class="form-control">
+                <input wire:model="address"  id="address" type="text" class="form-control" value="{{$old('address')}}">
                 @error('address')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
               <div class="mb-3">
                 <label for="birthday" class="form-label">Fecha de nacimiento</label>
-                <input wire:model="birthday" id="birthday" type="date" class="form-control">
+                <input wire:model="birthday" id="birthday" type="date" class="form-control" value="{{$old('birthday')}}">
                 @error('birthday')<span class="text-danger" >{{$message}}</span>@enderror
               </div>
               <button type="submit" class="btn btn-primary">Guardar</button>

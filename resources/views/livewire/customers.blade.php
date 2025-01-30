@@ -26,9 +26,9 @@
                     <td>{{$customer->birthday}}</td>
                     <td>
                         {{-- Ver --}}
-                        <a href="" class="btn btn-primary btn-sm">Ver</a>
+                        <button class="btn btn-primary btn-sm" wire:click="view({{$customer->id}})">Ver</button>
                         {{-- Editar --}}
-                        <a href="" class="btn btn-secondary btn-sm">Editar</a>
+                        <button class="btn btn-secondary btn-sm" wire:click="edit({{ $customer->id }})">Edit</button>
                         {{-- Borrar --}}
                         <form action="" method="POST" style="display:inline;">
                             @csrf
