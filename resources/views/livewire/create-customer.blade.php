@@ -5,7 +5,7 @@
         Ingresar los datos del cliente a registrar
       </div>
       <div class="card-body">
-          <form wire:submit.prevent="save">  
+          <form wire:submit="save">  
 
               <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
@@ -38,10 +38,9 @@
               </div>
               
               <button type="submit" class="btn btn-primary">Guardar</button>
-              <a href="{{ route('customers') }}" class="btn btn-secondary">Regresar</a>  <!-- ✅ Redirección Correcta -->
+              <a href="{{ route('customers') }}" class="btn btn-secondary">Regresar</a>  
             </form>
 
-            <!-- ✅ Mensaje de éxito después de guardar -->
             @if (session()->has('message'))
               <div class="alert alert-success mt-3">
                   {{ session('message') }}
